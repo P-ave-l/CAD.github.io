@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Моё резюме</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="theme-switcher">
+        <input type="checkbox" id="theme-toggle" class="theme-toggle">
+        <label for="theme-toggle" class="theme-label">
+            <span class="sun-icon">☀️</span>
+            <span class="moon-icon">🌙</span>
+            <span class="theme-ball"></span>
+        </label>
+    </div>
+
+    <div class="resume-container">
+        <header>
+            <h1 id="fullName">Косьмин Павел</h1>
+            <div class="photo-container">
+                <img src="Wow_how.jpg" alt="Фото Косьмина Павла" class="profile-photo">
+            </div>
+            <div class="tags">
+                <span class="tag">#Студент_3_курса</span>
+                <span class="tag">#15.03.04</span>
+                <span class="tag">#Профорг</span>
+                <span class="tag">#Курсант_ВУЦ</span>                
+            </div>
+        </header>
+
+        <section class="about">
+            <p>Опытный разработчик без опыта разработки.</p>
+            <p>Альденте бакалавр.</p>
+            <p>"Когд-то где-то занимался..."</p>
+        </section>
+
+        <section class="interactive-section">
+            <div class="input-group">
+                <input type="text" id="newTagInput" placeholder="Хэштег (без пробелов)">
+                <button id="addTagBtn" class="action-btn">Добавить хэштег</button>
+            </div>
+
+            <button id="randomColorBtn" class="action-btn">Случайный цвет фона</button>
+
+            <div class="age-verification">
+                <button id="verifyAgeBtn" class="action-btn">Проверить возраст</button>
+                <div id="ageResult"></div>
+            </div>
+        </section>
+    </div>
+
+    <script src="scriptmy.js"></script>
+</body>
+</html>
