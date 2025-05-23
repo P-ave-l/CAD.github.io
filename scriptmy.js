@@ -8,7 +8,53 @@ document.addEventListener('DOMContentLoaded', function() {
     const tagsContainer = document.querySelector('.tags');
     const themeToggle = document.getElementById('theme-toggle');
     const html = document.documentElement;
-    
+                                                                //Здесь ерунда для фана
+    const nameInput = document.getElementById('nameInput');
+    const changeNameBtn = document.getElementById('changeNameBtn');
+    const fullNameElement = document.getElementById('fullName');
+    // Функция изменения имени
+function changeName() {
+  const newName = nameInput.value.trim();
+  if (newName) {
+    fullNameElement.textContent = newName;
+    // Сохраняем в localStorage с учетом темы
+    const theme = document.documentElement.getAttribute('data-theme') || 'light';
+    localStorage.setItem(`userName_${theme}`, newName);
+    nameInput.value = '';
+  } else {
+    alert('Пожалуйста, введите имя и фамилию');
+  }
+}
+
+// Обработчики событий
+changeNameBtn.addEventListener('click', changeName);
+nameInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') changeName();
+});
+
+// Восстановление имени при загрузке
+document.addEventListener('DOMContentLoaded', function() {
+  const theme = document.documentElement.getAttribute('data-theme') || 'light';
+  const savedName = localStorage.getItem(`userName_${theme}`);
+  if (savedName) {
+    fullNameElement.textContent = savedName;
+  }
+});
+
+// Обновите обработчик смены темы, чтобы сохранялось имя для каждой темы
+themeToggle.addEventListener('change', function() {
+  // ... ваш существующий код смены темы ...
+  
+  // Сохраняем текущее имя перед сменой темы
+  const currentTheme = this.checked ? 'dark' : 'light';
+  const nextTheme = this.checked ? 'light' : 'dark';
+  localStorage.setItem(`userName_${currentTheme}`, fullNameElement.textContent);
+  
+  // Восстанавливаем имя для новой темы
+  const savedName = localStorage.getItem(`userName_${nextTheme}`) || 'Косьмин Павел';
+  fullNameElement.textContent = savedName;
+});
+                                                                //Конец ерунды
     // 1. Функция случайного цвета фона
     randomColorBtn.addEventListener('click', function() {
         const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);

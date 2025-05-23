@@ -139,7 +139,10 @@ header {
   z-index: 100;
 }
 
+
 .theme-label {
+  cursor: pointer;
+  position: relative;
   width: 60px;
   height: 24px;
   background: var(--toggle-bg);
@@ -159,6 +162,7 @@ header {
   position: absolute;
   z-index: 2;
   transition: transform 0.3s ease;
+  z-index: 2;
 }
 
 /* Иконки */
@@ -212,7 +216,7 @@ input[type="text"] {
 }
 
 .theme-toggle:checked + .theme-label .theme-ball {
-  transform: translateX(36px);
+  transform: translateX(40px);
 }
 
 /* Добавлено: Темный фон контейнера */
@@ -220,3 +224,22 @@ input[type="text"] {
     background-color: #414243;
 }
 
+/*Тестовые стили для ненужного варианта*/
+.name-changer {
+  display: flex;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+#nameInput {
+  padding: 8px;
+  border: 2px solid var(--input-border, #3498db);
+  border-radius: 5px;
+  flex-grow: 1;
+}
+
+[data-theme="dark"] #nameInput {
+  background-color: #2d3436;
+  color: white;
+  border-color: #0984e3;
+}
